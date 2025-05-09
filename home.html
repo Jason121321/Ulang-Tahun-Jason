@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Ulang Tahun - Jason Sairyo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #a18cd1, #fbc2eb);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            color: white;
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.5rem;
+        }
+        .section {
+            padding: 40px 20px;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            margin-bottom: 20px;
+        }
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Musik Latar -->
+<audio autoplay loop id="bg-music">
+    <source src="path/ke/lagu/anda.mp3" type="audio/mpeg">
+</audio>
+<div class="hero bg-dark">
+    <img src="MY%20foto.jpg" alt="Jason Sairyo" class="profile-img">
+    <h1 class="display-5">Jason Sairyo</h1>
+    <p class="lead">Undangan Ulang Tahun</p>
+    <div class="countdown" id="countdown">
+        <div><span id="days">00</span><br>Hari</div>
+        <div><span id="hours">00</span><br>Jam</div>
+        <div><span id="minutes">00</span><br>Menit</div>
+        <div><span id="seconds">00</span><br>Detik</div>
+    </div>
+</div>
+
+<div class="section bg-white text-center">
+    <h2>Tentang Jason</h2>
+    <p>Jason adalah anak ceria yang sedang merayakan ulang tahunnya yang ke-7! Yuk, datang dan rayakan bersama kami!</p>
+</div>
+
+<div class="section bg-light text-center">
+    <h2>Waktu & Lokasi</h2>
+    <p><strong>Sabtu, 14 Juni 2025</strong><br> Pukul 15:00 WIB<br> di Kediaman Keluarga Sairyo, Pontianak , Jln.Parit Baru Gang Khayangan Residence Blok A2/5</p>
+    <a href="https://maps.google.com" target="_blank" class="btn btn-primary mt-2">Lihat di Google Maps</a>
+</div>
+
+<div class="section bg-white text-center">
+    <h2>Kontak</h2>
+    <p>Silakan konfirmasi kehadiran ke orang tua Jason:</p>
+    <p>WA: <a href="https://wa.me/6289516744656" target="_blank">0895-1674-4656</a></p>
+</div>
+
+<script>
+    // Countdown Timer
+    const countDownDate = new Date("June 14, 2025 15:00:00").getTime();
+    const countdownFunction = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown").innerHTML = "Acara telah dimulai!";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
